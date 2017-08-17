@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Tabata Timer</string>
+    <string name="action_edit">Edit</string>
+    <string name="finish">Finish</string>
+    <string name="pausa">Rest</string>
+    <string name="remove">Remove</string>
+    <string name="rest">Preparation</string>
+    <string name="run">Workout</string>
+    <string name="second">second</string>
+    <string name="seconda">second</string>
+    <string name="seconds">seconds</string>
+    <string name="text.hint.time_pause">Rest time (seconds)</string>
+    <string name="text.hint.time_run">Workout time(seconds)</string>
+    <string name="text.hint.timer_count">Rounds (count)</string>
+    <string name="text.hint.timer_name">Name</string>
+    <string name="text.name.save">Save</string>
+    <string name="title.create_timer">Create a timer</string>
+    <string name="title.name.edit">Editing</string>
+    <string name="toast.empty_field">Fill in all the fields</string>
+    <string name="toast.timer_created">The timer set</string>
+    <string name="toast.timer_edit">The timer is edited</string>
+    <string name="toast.timer_remove">Timer removed</string>
+    <string name="tabata">TABATA</string>
+    <string name="hiit">HIIT</string>
+    <string name="tabata_help">\nWhat is Tabata Training?\n\nWith Tabata training you exercise for 20 seconds then rest for 10 seconds, and repeat 8 times. This with a short preparation time before starting is a Tabata. It\'s that simple.\n\nThis technique discovered by Dr. Izumi Tabata in Tokyo gives you maximum benefits in a short period of time.\n\nBenefits:\nIt burns fat! Tabata raises your metabolism (great for morning workouts)\nIt\'s fast! You gain the same benefits of long drawn out workouts in shorter time\nIt\'s versatile! You can do heavy weightlifting or light aerobics or anything in between. Do the exercises that are right for you, but do them!\nIt\'s proven! It really works, this technique has been researched extensively, and it is becoming popular because people are getting results!\n\nHow To Do Tabata Training\n\nYou can do Tabata training with weights or simple body weight exercises. First choose what type of exercise you will do. Start with a short preparation to get ready and alternate between work and rest periods for eight cycles. During the work period exercise continuously and as rigorously as you can for the entire 20 second period. During the rest period, stop exercise, catch your breath, and get ready for the next work period. Repeat this for eight cycles.\n\n</string>
+    <string name="title.create_single_timer">Create a simple timer</string>
+    <string name="minutes">minutes</string>
+    <string name="simple">Simple timer</string>
+    <string name="tabata_timer">Tabata timer</string>
+    <string name="name_timer">The name of the timer</string>
+    <string name="sec">sec.</string>
+    <string name="stop">Stop</string>
+</resources>

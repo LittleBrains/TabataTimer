@@ -1,0 +1,23 @@
+<tabs>
+    <tab
+        id="@+id/tab_favorites"
+        icon="@drawable/ic_action_edit"
+        title="Favorites"
+        barColorWhenSelected="#1976d2"
+        inActiveColor="#ffffff"
+        activeColor="#ffffff"/>
+    <tab
+        id="@+id/tab_nearby"
+        icon="@drawable/ic_add_white_24dp"
+        title="Nearby"
+        barColorWhenSelected="#4caf50"
+        inActiveColor="#ffffff"
+        activeColor="#ffffff"/>
+    <tab
+        id="@+id/tab_friends"
+        icon="@drawable/ic_help_white_24dp"
+        title="Friends"
+        barColorWhenSelected="#f5a623"
+        inActiveColor="#ffffff"
+        activeColor="#ffffff"/>
+</tabs>
