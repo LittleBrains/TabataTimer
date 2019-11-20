@@ -10,87 +10,87 @@
     android:minHeight="100dp">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/root"
-        android:visibility="gone">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <TextView
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:id="@+id/title"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/linearLayout"
-                android:layout_weight="0.5">
+                android:layout_weight="0.5"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/run"
                     android:id="@+id/text_time_run"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:text="@string/run"
                     android:textSize="18dp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/pausa"
                     android:id="@+id/text_time_pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:text="@string/pausa"
                     android:textSize="18dp" />
 
                 <TextView
+                    android:id="@+id/text_timer_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/text.hint.timer_count"
-                    android:id="@+id/text_timer_count"
                     android:layout_marginTop="8dp"
+                    android:text="@string/text.hint.timer_count"
                     android:textSize="18dp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="00"
                     android:id="@+id/time_run"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:text="00"
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="00"
                     android:id="@+id/time_pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:text="00"
                     android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/timer_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00"
-                    android:id="@+id/timer_count"
                     android:layout_marginTop="8dp"
+                    android:text="00"
                     android:textSize="18dp"
                     android:textStyle="bold" />
             </LinearLayout>

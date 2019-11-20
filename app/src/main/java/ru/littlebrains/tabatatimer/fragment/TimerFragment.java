@@ -79,6 +79,11 @@ public class TimerFragment extends BaseFragment {
         actionBar.setElevation(0);
         if(rootView != null) return  rootView;
 
+        if (getActivity() != null) {
+            getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
+
+
         rootView = (FrameLayout) inflater.inflate(R.layout.fragment_timer, container, false);
 
 
@@ -107,7 +112,11 @@ public class TimerFragment extends BaseFragment {
             i.putExtra("count", timerModel.timerCount);
             i.putExtra("id", timerModel.id);
             Log.d("id dd", timerModel.id );
-            getContext().startService(i);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                getContext().startForegroundService(i);
+            } else {
+                getContext().startService(i);
+            }
         }
 
         updateScreen();
@@ -223,6 +232,9 @@ public class TimerFragment extends BaseFragment {
         if(toolbar != null) {
             toolbar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimary)));
 
+        }
+        if (getActivity() != null) {
+            getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
         super.onDestroy();
     }

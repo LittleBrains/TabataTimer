@@ -2,12 +2,14 @@ package ru.littlebrains.tabatatimer;
 
 import android.app.Activity;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.Build;
@@ -37,6 +39,7 @@ public class TimerService extends Service {
     private static final int RUN = 1;
     private static final int PAUSE = 2;
     private static final int FINISH = 3;
+    private static final String CHANNEL_ID = "Tabata2";
 
     public static TimerModel timerModel = new TimerModel();
     private int rest;
@@ -48,7 +51,6 @@ public class TimerService extends Service {
     private AssetFileDescriptor afd;
     private boolean pauseTimer = false;
     private Timer timer;
-    private PowerManager.WakeLock wakeLock;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -89,15 +91,6 @@ public class TimerService extends Service {
     }
 
     void someTask() {
-
-        PowerManager mgr = (PowerManager)getSystemService(Context.POWER_SERVICE);
-        wakeLock = mgr.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "MyWakeLock");
-        wakeLock.acquire();
-
-       /* handlerTimer = new Handler();
-        handlerTimer.postDelayed(runnableTimer, 1000);*/
-
-        //if (runnableTimer != null) runnableTimer.cancel();
         if(timer!= null) timer.cancel();
         timer = new Timer();
         timer.schedule(runnableTimer, 1000, 1000);
@@ -160,7 +153,6 @@ public class TimerService extends Service {
                 sendBroadcast(intent);
                 notification();
                 if(nowStatus == FINISH) {
-                    wakeLock.release();
                     if (timer != null) timer.cancel();
                     stopSelf();
                 }
@@ -196,13 +188,28 @@ public class TimerService extends Service {
         }
     }
 
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel serviceChannel = new NotificationChannel(
+                    CHANNEL_ID,
+                    "Tabata Timer",
+                    NotificationManager.IMPORTANCE_LOW
+            );
+            serviceChannel.setDescription("Timer for Tabata");
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(serviceChannel);
+        }
+    }
+
     private void notification(){
         Intent intent = new Intent(this, MainActivity.class);
         intent.setAction("open");
         intent.putExtra("timer_id", timerModel.id);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
 
-        NotificationCompat.Builder notification  = new NotificationCompat.Builder(this)
+        createNotificationChannel();
+
+        NotificationCompat.Builder notification  = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(getTextStatus() + " "  + getTime() +getString(R.string.sec))
                 .setContentText(timerModel.timerCount == TimerModel.COUNT_SINGLE_TIMER ?
                         "" :

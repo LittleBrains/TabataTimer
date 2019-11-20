@@ -3,6 +3,7 @@ package ru.littlebrains.tabatatimer.fragment;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +14,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.FrameLayout;
@@ -46,6 +49,7 @@ public class MainFragment extends BaseFragment {
                              Bundle savedInstanceState) {
 
         super.onCreateView(inflater, container, savedInstanceState);
+        setStatusBarColor(R.color.colorPrimaryDark);
 
         setTitle(R.string.app_name);
         actionBar.setDisplayHomeAsUpEnabled(false);
@@ -158,5 +162,12 @@ public class MainFragment extends BaseFragment {
                 break;
         }
         return true;
+    }
+    private void setStatusBarColor(int idColor){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = mActivity.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(getResources().getColor(idColor));
+        }
     }
 }
